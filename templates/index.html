@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>VCR Library</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      th {
+        background-color: lightgray;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>VCR Library</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Messages</th>
+          <th>Response Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- enumerate through the items in the interactions list and display the index, message, and response -->
+        {% for interaction in interactions %}
+        <tr>
+            <td>
+                <!-- display the index of the interaction item -->
+                {{ loop.index }}
+            </td>
+          <td>
+            <pre style="white-space: pre-wrap;">{{ interaction['message']['content'] }}</pre>                        
+          </td>
+          <td>
+            <pre style="white-space: pre-wrap;">{{ interaction['response'] }}</pre>              
+        </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
